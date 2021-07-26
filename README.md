@@ -10,7 +10,7 @@
   - https://www.npmjs.com/package/supertest (API testing)
   - konfigurasi script:
     ```json
-    "setup:dev": "sequelize-cli db:drop&&sequelize-cli db:create&&sequelize-cli db:migrate ",
+    "setup:dev": "sequelize-cli db:drop&&sequelize-cli db:create&&sequelize-cli db:migrate",
     "setup:test": "set NODE_ENV=test&& sequelize-cli db:drop&&sequelize-cli db:create && sequelize-cli db:migrate",
     "test": "set NODE_ENV=test&&jest --runInBand --forceExit --detectOpenHandles",
     "dev": "set NODE_ENV=development&&nodemon ./bin/server.js",
@@ -23,6 +23,8 @@
   - Positif Case & Negative Case (deskripsi test harus jelas)
 
 - [x] Setup dan Teardown
+
+  - Minimal antar `Test Suites` tidak ada ketergantungan
 
   - mulai clean
   - done clean

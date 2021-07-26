@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       email: {
         type: DataTypes.STRING,
         validate: {
+          isEmail: true,
           notEmpty: true,
         },
       },
@@ -31,9 +32,10 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: "User",
       hooks: {
-        beforeCreate: (user, opt) => {
+        beforeCreate(user) {
           const salt = bcrypt.genSaltSync(10);
-          user.password = bcrypt.hashSync(user.password, salt);
+          const hash = bcrypt.hashSync(user.password, salt);
+          user.password = hash;
         },
       },
     }
